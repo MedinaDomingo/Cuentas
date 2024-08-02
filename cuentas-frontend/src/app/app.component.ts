@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { ProblemaService } from './services/problema.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HttpClientModule, FormsModule],
+  imports: [RouterOutlet, HttpClientModule, FormsModule, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers: [ProblemaService]
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit{
   result!: string;
   userAnswer!: string;
   feedback!: string;
+  isCorrect!: boolean;
 
   constructor(private problemaService: ProblemaService){ }
 
@@ -41,8 +43,10 @@ export class AppComponent implements OnInit{
   verificarRespuesta(): void {
     if (this.userAnswer === this.result) {
       this.feedback = '¡Correcto!';
+      this.isCorrect = true;
     } else {
       this.feedback = 'Incorrecto, inténtalo de nuevo.';
+      this.isCorrect = false;
     }
   }
 }
