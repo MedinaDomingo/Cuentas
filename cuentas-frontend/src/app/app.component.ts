@@ -16,7 +16,7 @@ import { NgIf } from '@angular/common';
 export class AppComponent implements OnInit{
   title = 'cuentas-frontend';
   problema!: string;
-  result!: string;
+  solution!: number;
   userAnswer!: string;
   feedback!: string;
   isCorrect!: boolean;
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit{
     this.problemaService.getProblema().subscribe(
       (data) => {        
         this.problema = data.problem;
-        this.result = data.result;
+        this.solution = data.result;
         this.feedback = '';
       },
       (error) => {
@@ -41,7 +41,10 @@ export class AppComponent implements OnInit{
   }
 
   verificarRespuesta(): void {
-    if (this.userAnswer === this.result) {
+    console.log(typeof(this.userAnswer), typeof(this.solution))
+    const userAnswerNumber = parseInt(this.userAnswer);
+
+    if (userAnswerNumber === this.solution) {
       this.feedback = '¡Correcto!';
       this.isCorrect = true;
     } else {
