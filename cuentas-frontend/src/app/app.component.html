@@ -8,7 +8,7 @@
       </div>
   <p class="text-6xl font-bold">{{ problema }}</p>
   <h2 class="text-2xl font-semibold	mt-4">Resultado</h2>
-  <input type="number" [(ngModel)]="userAnswer" placeholder="Ingresa tu respuesta"
+  <input type="text" [(ngModel)]="userAnswer" placeholder="Ingresa tu respuesta" pattern="^-?\d*(\.\d+)?$"
       class="block text-center w-48 rounded-md border-0 bg-white py-1.5 text-black shadow-sm ring-1 ring-inset bg-slate-300 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6"/>
   <button class="flex w-48 m-4 justify-center rounded-md bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-orange-700 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:bg-black" (click)="verificarRespuesta()">Verificar Respuesta</button>
   
