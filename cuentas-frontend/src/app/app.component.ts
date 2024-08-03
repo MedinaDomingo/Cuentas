@@ -33,6 +33,7 @@ export class AppComponent implements OnInit{
         this.problema = data.problem;
         this.solution = data.result;
         this.feedback = '';
+        this.userAnswer = '';
       },
       (error) => {
         console.log(error);
