@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ProblemaService {
 
-  private apiUrl = 'https://cuentas-7n8n.onrender.com/problema';
+  private apiUrl = 'https://cuentas-back-3zkq.onrender.com/problema';
 
   constructor(private http: HttpClient) { }
 
